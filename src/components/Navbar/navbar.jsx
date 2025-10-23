@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 const Button = styled.button`
 	width: 110px;
@@ -11,27 +12,7 @@ const Button = styled.button`
 		background-color: white;
 	}
 `
-const A = styled.a`
-	
-	text-decoration: 'none';
-	&:hover {
-		color: #f67e7e;
-	}
-`
-const Home = styled.a`
-	text-decoration: none;
-	color: white;
-	&:hover {
-		color: #f67e7e;
-	}
-`
-const About = styled.a`
-	text-decoration: none;
-	color: white;
-	&:hover {
-		color: #f67e7e;
-	}
-`
+
 
 export default function Navbar() {
 	return (
@@ -58,23 +39,39 @@ export default function Navbar() {
 					}}
 				>
 					<h1>
-						<a
+						<Link
 							style={{
 								textDecoration: 'none',
 								marginRight: '80px',
 								color: 'white',
 							}}
-							href='#'
+							to={'/'}
 						>
 							myteam
-						</a>
+						</Link>
 					</h1>
-					<Home href='../../App.jsx'>home</Home>
-					<About href='../about/About.jsx'>about</About>
+					<Link
+						to={'/'}
+						style={{
+							textDecoration: 'none',
+							color: 'white',
+						}}
+					>
+						home{' '}
+					</Link>
+					<Link
+						to={'/about'}
+						style={{
+							textDecoration: 'none',
+							color: 'white',
+						}}
+					>
+						about
+					</Link>
 				</div>
-				<A href='../contact/Contact.jsx'>
+				<Link to={'/contact'}>
 					<Button>contact us</Button>
-				</A>
+				</Link>
 			</header>
 		</div>
 	)
